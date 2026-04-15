@@ -1,0 +1,113 @@
+AI Resume Screening System with Tracing
+
+1. Introduction
+What is a Resume Screening System?
+A Resume Screening System is an automated tool used by recruiters to evaluate candidate resumes based on job requirements. It helps in filtering candidates efficiently by analyzing their skills, experience, and qualifications.
+Traditional screening is time-consuming and manual. Using AI and Large Language Models (LLMs), we can automate this process and make it faster, more consistent, and explainable.
+
+Objective of the Assignment
+The objective of this project is to:
+Build an AI-powered Resume Screening System
+Use LangChain to create a modular pipeline
+Use LangSmith for tracing and debugging
+Implement scoring and explainability
+Evaluate candidates based on job descriptions
+
+
+2. Pipeline Design
+The system follows this pipeline:
+Resume → Extract → Match → Score → Explain
+
+Step 1: Skill Extraction
+Extracts:
+Skills
+Experience
+Tools/Technologies
+Uses LLM to analyze resume text
+Ensures no assumptions are made
+Step 2: Matching
+Compares extracted resume data with job description
+Identifies:
+Matched skills
+Missing skills
+Experience match
+Tool compatibility
+Step 3: Scoring
+Assigns a score between 0–100
+Based on:
+Skills match (50%)
+Experience match (30%)
+Tools match (20%)
+Step 4: Explanation
+Provides reasoning for the score
+Includes:
+Strengths
+Weaknesses
+Justification of evaluation
+3. Technologies Used
+Python – Core programming language
+LangChain – Pipeline and prompt management
+LangSmith – Tracing and debugging
+OpenAI API – LLM for processing and analysis
+
+
+4. Prompt Design
+Skill Extraction Prompt
+Extracts structured data from resume
+Returns JSON format
+Key Rule:
+“Do NOT assume anything not present in the resume”
+Matching Prompt
+Compares resume with job requirements
+Identifies matched and missing skills
+Scoring Prompt
+Assigns score based on defined criteria
+Ensures consistent evaluation
+Explanation Prompt
+Generates human-readable reasoning
+Explains strengths and weaknesses
+
+
+5. Results
+Strong Candidate
+Score: 100/100
+Matches all required skills
+Has relevant experience and tools
+Average Candidate
+Score: 50–70/100
+Matches some skills
+Missing advanced skills like NLP
+Limited experience
+Weak Candidate
+Score: 0–20/100
+No relevant skills
+No matching experience
+Not suitable for the role
+
+
+6. Debug Case
+What went wrong?
+The system failed when processing an unstructured resume:
+"I know coding and AI stuff"
+Why it failed?
+Resume lacked clear structure
+No explicit skills or tools mentioned
+LLM could not extract meaningful data
+How it was fixed?
+Improved prompt instructions:
+Enforced strict JSON output
+Added rule: “Only extract explicitly mentioned data”
+Ensured system does not hallucinate skills
+
+
+7. Conclusion
+This project demonstrates how AI can be used to automate resume screening.
+
+Key Learnings:
+Built modular pipelines using LangChain
+Used LLMs for information extraction
+Implemented scoring and explainability
+Used LangSmith for tracing and debugging
+Learned importance of prompt engineering
+The system provides accurate, explainable, and scalable candidate evaluation.
+
